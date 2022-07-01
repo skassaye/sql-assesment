@@ -1,0 +1,112 @@
+-- Question 2.1
+SELECT email_domain, COUNT(*)
+FROM users
+WHERE email_domain LIKE '%.edu'
+GROUP BY 1
+ORDER BY 2 DESC
+LIMIT 25;
+
+-- Question 2.2
+
+SELECT COUNT (*)
+FROM users
+WHERE email_domain LIKe '%.edu'
+  AND city = 'New York';
+
+-- Question 2.3
+SELECT COUNT (*)
+FROM users
+WHERE mobile_app = 'mobile-user'
+  OR mobile_app = NULL;
+
+-- Question 3
+SELECT sign_up_at,
+   strftime('%H', sign_up_at) 
+FROM users
+GROUP BY 1
+LIMIT 20;
+
+-- QUESTION 4.1
+
+SELECT users.email_domain,
+  COUNT(
+    CASE
+    WHEN progress.learn_cpp = 'started' OR progress.learn_cpp = 'completed' THEN users.user_id
+  END) AS cpp,
+  COUNT(
+    CASE
+    WHEN progress.learn_sql = 'completed' OR progress.learn_sql = 'started' THEN users.user_id
+  END) AS sql,
+  COUNT(
+    CASE
+    WHEN progress.learn_html = 'completed' OR progress.learn_html = 'started' THEN users.user_id
+  END) AS html,
+  COUNT(
+    CASE
+    WHEN progress.learn_javascript = 'started' OR progress.learn_javascript = 'completed' THEN users.user_id
+  END) AS javascript,
+  COUNT(
+    CASE
+    WHEN progress.learn_java = 'started' OR progress.learn_java = 'completed' THEN users.user_id
+  END) AS java
+FROM users
+JOIN progress
+  ON users.user_id = progress.user_id
+  GROUP BY 1;
+-- QUESTION 4.2
+
+  SELECT users.email_domain,
+  COUNT(
+    CASE
+    WHEN progress.learn_cpp = 'started' OR progress.learn_cpp = 'completed' THEN users.user_id
+  END) AS cpp,
+  COUNT(
+    CASE
+    WHEN progress.learn_sql = 'completed' OR progress.learn_sql = 'started' THEN users.user_id
+  END) AS sql,
+  COUNT(
+    CASE
+    WHEN progress.learn_html = 'completed' OR progress.learn_html = 'started' THEN users.user_id
+  END) AS html,
+  COUNT(
+    CASE
+    WHEN progress.learn_javascript = 'started' OR progress.learn_javascript = 'completed' THEN users.user_id
+  END) AS javascript,
+  COUNT(
+    CASE
+    WHEN progress.learn_java = 'started' OR progress.learn_java = 'completed' THEN users.user_id
+  END) AS java
+FROM users
+JOIN progress
+  ON users.user_id = progress.user_id
+  WHERE city = 'New York'
+  GROUP BY 1;
+-- QUESTION 4.3
+  SELECT users.email_domain,
+  COUNT(
+    CASE
+    WHEN progress.learn_cpp = 'started' OR progress.learn_cpp = 'completed' THEN users.user_id
+  END) AS cpp,
+  COUNT(
+    CASE
+    WHEN progress.learn_sql = 'completed' OR progress.learn_sql = 'started' THEN users.user_id
+  END) AS sql,
+  COUNT(
+    CASE
+    WHEN progress.learn_html = 'completed' OR progress.learn_html = 'started' THEN users.user_id
+  END) AS html,
+  COUNT(
+    CASE
+    WHEN progress.learn_javascript = 'started' OR progress.learn_javascript = 'completed' THEN users.user_id
+  END) AS javascript,
+  COUNT(
+    CASE
+    WHEN progress.learn_java = 'started' OR progress.learn_java = 'completed' THEN users.user_id
+  END) AS java
+FROM users
+JOIN progress
+  ON users.user_id = progress.user_id
+  WHERE city = 'Chicago'
+  GROUP BY 1;
+
+
