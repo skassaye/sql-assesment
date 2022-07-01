@@ -1,0 +1,38 @@
+What are the Top 25 schools (.edu domains)?
+email_domain	COUNT(*)
+ucsd.edu	193
+cps.edu	55
+ku.edu	50
+vt.edu	40
+oregonstate.edu	38
+msu.edu	33
+strathmore.edu	29
+umich.edu	25
+u.northwestern.edu	25
+nyu.edu	23
+pace.edu	22
+asu.edu	22
+berkeley.edu	18
+ucdavis.edu	17
+husky.neu.edu	16
+drexel.edu	16
+baylor.edu	16
+g.ucla.edu	15
+utexas.edu	13
+ucsc.edu	13
+monmouth.edu	13
+case.edu	13
+uw.edu	12
+usc.edu	12
+tamu.edu	12
+
+How many .edu learners are located in New York?
+50
+The mobile_app column contains either mobile-user or NULL. How many of these Codecademy learners are using the mobile app?
+330
+Do different schools (.edu domains) prefer different courses?
+yes
+What courses are the New Yorkers students taking?
+cpp,sql,html,javascript,java
+What courses are the Chicago students taking?
+cpp, sql, html, javascript, java
